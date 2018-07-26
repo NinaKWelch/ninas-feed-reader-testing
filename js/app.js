@@ -1,12 +1,10 @@
-/* app.js
- *
- * This is our RSS feed reader application. It uses the Google
- * Feed Reader API to grab RSS feeds as JSON object we can make
- * use of. It also uses the Handlebars templating library and
- * jQuery.
+/*
+ * This RSS feed reader application uses the Google
+ * Feed Reader API to grab RSS feeds as JSON object
+ * It also uses the Handlebars templating library and jQuery
  */
 
-// The names and URLs to all of the feeds we'd like available.
+// The names and URLs to all of the available feeds
 var allFeeds = [
     {
         name: 'Udacity Blog',
@@ -23,12 +21,11 @@ var allFeeds = [
     }
 ];
 
-/* This function starts up our application. The Google Feed
- * Reader API is loaded asynchonously and will then call this
- * function when the API is loaded.
- */
+// Start application
+// The Google Feed Reader API is loaded asynchonously
+// and call this function when the API is loaded
 function init() {
-    // Load the first feed we've defined (index of 0).
+    // Load the first feed (index of 0)
     loadFeed(0);
 }
 
