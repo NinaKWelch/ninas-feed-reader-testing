@@ -88,19 +88,19 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, function() {
                 // Assign a value to firstFeed variable (it's inner HTML)
-                firstFeed = $('.feed').innerHTML;
+                firstFeed = $('.feed').text();
+                // load second feed before testing
+                loadFeed(1, function() {
+                    // Assign a value to secondFeed variable (it's inner HTML)
+                    secondFeed = $('.feed').text();
+                    done();
+                });
             });
-            done();
         });
 
-        it('Content changes', function(done) {
-            // load new feed
-            loadFeed(1);
-            // Assign a value to secondFeed variable (it's inner HTML)
-            secondFeed = $('.feed').innerHTML;
+        it('Content changes', function() {
             // Compare the feeds and check they are not identical
             expect(firstFeed).not.toEqual(secondFeed);
-            done();
         });
     });
 
